@@ -1,0 +1,12 @@
+SAMPLES = ["A", "B", "C"]
+
+include: "rules/img.smk"
+include: "rules/1.smk"
+include: "rules/2.smk"
+include: "rules/3.smk"
+include: "rules/4.smk"
+
+rule all:
+    input:
+        expand("results/compare/{sample}_diff.txt", sample=SAMPLES),
+        expand("results/compare/{sample}_diff_bad.txt", sample=SAMPLES)

@@ -2,26 +2,27 @@
 A quick intro to snakemake for bioinformatics.
 
 This repository contains a minimal workflow illustrating how to use
-[Snakemake](https://snakemake.readthedocs.io) with the [seqtk](https://github.com/lh3/seqtk)
-command line tool. The workflow performs two simple steps for each example
-FASTQ file in the `data/` directory:
-
-1. Quality statistics with `seqtk fqchk`.
-2. Conversion from FASTQ to FASTA with `seqtk seq -A`.
+[Snakemake](https://snakemake.readthedocs.io).
 
 ## Usage
 
-Install seqtk (Debian/Ubuntu):
+Prep environment:
 
 ```bash
-sudo apt-get update
-sudo apt-get install -y seqtk
+conda create -n demo -c conda-forge -c bioconda snakemake
+conda activate demo
 ```
 
 Run the workflow:
 
 ```bash
-snakemake --cores 1
+snakemake --cores 1 all1
 ```
 
-Outputs are written to `results/qc/` and `results/fasta/`.
+Outputs are written to `results/`. Targets are `all1`, `all2`, `all3`, and `all4`.
+
+Generate DAG PDF with:
+
+```bash
+snakemake all1 --dag | dot -Tpdf > dag.pdf
+```
