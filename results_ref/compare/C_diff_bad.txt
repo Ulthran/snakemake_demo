@@ -1,0 +1,8 @@
+2c2
+< TACTCGAT
+---
+> ATCGAGTA
+4c4
+< AGATCCTC
+---
+> GAGGATCT
